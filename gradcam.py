@@ -92,7 +92,7 @@ def get_saliency(model,ref,last_spatial_layer,class_of_interest,model_imsize,mod
     heat_map = list(map(lambda t:transform.resize((t*255.).astype(np.uint8),model_imsize),L_c_np))
     heat_map = np.array(heat_map)
     #TODO why did i transpose
-    print(heat_map.shape)
+    #print(heat_map.shape)
 
     
     return L_c_np,heat_map,ref_scores
