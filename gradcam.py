@@ -5,6 +5,10 @@ from matplotlib import cm
 from PIL import Image
 from skimage import transform
 
+
+def tensor_to_numpy(x):
+    return x.detach().cpu().numpy()
+
 def get_model(modelname):
 
     if modelname == 'vgg19':
