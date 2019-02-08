@@ -98,7 +98,7 @@ def get_saliency(model,ref,last_spatial_layer,class_of_interest,model_imsize,mod
     return L_c_np,heat_map,ref_scores
 
 
-def batch_overlay(heat_map,im):
+def batch_overlay(heat_map,im, model_imsize):
     #TODO Write code for converting a batch of heat mapps into cm.jet images, and overlay them onto the reference image
     heat_map_jet = list(map(lambda h:cm.jet(h),heat_map))
     heat_map_jet = np.array(heat_map_jet)[:,:,:,:3]
