@@ -69,13 +69,13 @@ def get_saliency(model,ref,last_spatial_layer,class_of_interest,model_imsize,mod
     gradcam_loss.backward()
 
     Z = 1.
-    if modelname == 'vgg':
+    if modelname == 'vgg19':
         alpha_c_k = (1/Z) * torch.sum(last_spatial_layer.our_grad_out,(2,3))
     #     print(alpha_c_k.shape,tensor_to_numpy(alpha_c_k[0,:10]))
         alpha_into_A = alpha_c_k.unsqueeze(-1).unsqueeze(-1) * last_spatial_layer.our_feats
     elif modelname == 'alexnet':
         pass
-    elif modelname == 'resnet':
+    elif modelname == 'resnet18':
         pass
     
     alpha_into_A_channelsum = torch.sum(alpha_into_A,1)
